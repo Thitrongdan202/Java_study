@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 public class EmployeeGUIDemo {
     private JFrame frame;
     private JPanel panel;
-    private JButton showButton, hideButton, exitButton;
+    private JButton showButton, hideButton, exitButton, openCvButton;
 
     public EmployeeGUIDemo() {
         // Frame setup
@@ -80,6 +80,11 @@ public class EmployeeGUIDemo {
         exitButton.setBounds(270, 200, 80, 25);
         frame.add(exitButton);
 
+        // Open CV button
+        openCvButton = new JButton("Open CV");
+        openCvButton.setBounds(30, 200, 100, 25);
+        frame.add(openCvButton);
+
         // Button actions
         hideButton.addActionListener(new ActionListener() {
             @Override
@@ -103,6 +108,14 @@ public class EmployeeGUIDemo {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.exit(0);
+            }
+        });
+
+        openCvButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose(); // Close EmployeeGUI window
+                new CV(); // Open CV window
             }
         });
 
